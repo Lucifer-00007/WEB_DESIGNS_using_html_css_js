@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News App - Get latest news now</title>
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Style.css -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">News App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Topics
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Technology</a>
+                            <a class="dropdown-item" href="#">Politics</a>
+                            <a class="dropdown-item" href="#">Fashion</a>
+                            <a class="dropdown-item" href="#">Movies</a>
+                            <a class="dropdown-item" href="#">Business</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div>
+                    <div class="input-group">
+                        <input id="search-input" type="text" class="form-control" placeholder="Search this site..."
+                            aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button id="search-btn" class="btn btn-info" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mx-2">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Login</button>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#signupModal">SignUp</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Login to News App</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <!-- <label for="exampleInputEmail1">Email address</label> -->
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="Email *">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleInputPassword1">Password</label> -->
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Password *">
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <!-- <button type="submit" class="d-flex justify-content-center align-items-center btn btn-primary">Login</button> -->
+                            <button type="submit"
+                                class="d-flex justify-content-center align-items-center btn btn-primary mx-auto">Login</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign Up Modal -->
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Get an News App Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <!-- <label for="exampleInputEmail1">Email address</label> -->
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="Email *">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleInputPassword1">Password</label> -->
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Password *">
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="cexampleInputPassword1">Confirm Password</label> -->
+                                <input type="password" class="form-control" id="cexampleInputPassword1"
+                                    placeholder="Confirm Password *">
+                            </div>
+
+                            <button type="submit"
+                                class="d-flex justify-content-center align-items-center btn btn-primary mx-auto">Create
+                                Account</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel -->
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./images/music-img.jpeg" class="d-block w-100 custom-carousel-image"
+                        alt="Tech News Image">
+                    <div class="carousel-caption">
+                        <h2>Music Industry</h2>
+                        <p class="d-none d-md-block">Stay in tune with the latest developments and trends in the music
+                            industry.</p>
+                        <a href="#" class="btn btn-primary custom-btn">Read More</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/tech-img.jpeg" class="d-block w-100 custom-carousel-image" alt="Tech News Image">
+                    <div class="carousel-caption">
+                        <h2>Tech News</h2>
+                        <p class="d-none d-md-block">Stay informed and keep current with the latest cutting-edge
+                            technology updates.</p>
+                        <a href="#" class="btn btn-primary custom-btn">Read More</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/sports-img.jpeg" class="d-block w-100 custom-carousel-image"
+                        alt="Sports News Image">
+                    <div class="carousel-caption">
+                        <h2>Sports News</h2>
+                        <p class="d-none d-md-block">Get the latest scores, highlights, and updates from the world of
+                            sports.</p>
+                        <a href="#" class="btn btn-warning custom-btn">Read More</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/business-img.jpeg" class="d-block w-100 custom-carousel-image"
+                        alt="Business News Image">
+                    <div class="carousel-caption">
+                        <h2>Business News</h2>
+                        <p class="d-none d-md-block">Stay updated with the latest developments in the world of business
+                            and finance.</p>
+                        <a href="#" class="btn btn-danger custom-btn">Read More</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/world-img.jpeg" class="d-block w-100 custom-carousel-image"
+                        alt="World News Image">
+                    <div class="carousel-caption">
+                        <h2>World News</h2>
+                        <p class="d-none d-md-block">Stay informed about global events and world affairs.</p>
+                        <a href="#" class="btn btn-light custom-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- Main Content Container -->
+        <div class="container my-4">
+            <div id="news-container" class="row mb-2">
+                <!-- News cards will be displayed here -->
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center" id="pagination">
+                            <!-- Pagination buttons will be added here dynamically -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer  -->
+    <footer class="bg-dark text-light text-center blog-footer py-3">
+        <strong> Created With 🧡 By Lucifer <a class="ml-4" href="#">Back to top</a></strong>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- Script.js -->
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
