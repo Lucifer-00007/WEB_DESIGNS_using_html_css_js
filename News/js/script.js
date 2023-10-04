@@ -4,10 +4,33 @@ const input = 'india'; // Replace with your desired search query
 const pageSize = 10; // Number of news cards per page
 let currentPage = 1; // Current page number
 
+const searchBtn = document.getElementById('search-btn');
+const searchInput = document.getElementById('search-input');
+const categoryButtons = document.querySelectorAll('.category-btn');
+
+// Add event listeners to category buttons
+categoryButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        // Set the input query based on the button clicked
+        let input = button.dataset.category;
+        currentPage = 1; // Reset to page 1 when changing categories
+        showAlert(input);
+        mainFunc(input, currentPage);
+    });
+});
+
+// Add event listeners to search buttons
+searchBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    currentPage = 1; // Reset to page 1 when changing categories
+    showAlert(searchInput.value);
+    mainFunc(searchInput.value, currentPage);
+});
+
 // Function to fetch news data
-async function fetchNews(input, page) {
+async function fetchNews(input) {
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=${input}&apiKey=${apiKey}`);
+        const response = await fetch(`https://news-api-wjkj.onrender.com/news?q=${input}&apiKey=${apiKey}`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -20,7 +43,7 @@ async function fetchNews(input, page) {
 async function changePage(page) {
     currentPage = page;
     try {
-        const newsData = await fetchNews(input, currentPage);
+        const newsData = await fetchNews(input);
         displayNews(newsData);
     } catch (error) {
         console.error('An error occurred:', error);
@@ -30,12 +53,13 @@ async function changePage(page) {
 // Function to display news data and pagination
 function displayNews(data) {
     const newsContainer = document.getElementById('news-container');
-    
+
     if (data && data.status === 'ok' && data.articles) {
         // Calculate the range of articles to display
         const startIndex = (currentPage - 1) * pageSize;
         const endIndex = startIndex + pageSize;
         const newsData = data.articles.slice(startIndex, endIndex);
+        console.log('startIndex, endIndex> ', startIndex, endIndex)
 
         // Clear previous news cards and pagination
         newsContainer.innerHTML = '';
@@ -94,7 +118,7 @@ function createNewsCard(article) {
                     
                     <div class="my-2 line-clamp-1">
                         <i class="fas fa-user"></i>
-                        <span class="text-muted">${ article.author ? characterClamp(article.author, 15) : 'Anonymous'}</span>
+                        <span class="text-muted">${article.author ? characterClamp(article.author, 15) : 'Anonymous'}</span>
                     </div>
                     <a target="_blank" href="${article.url}" class="stretched-link">Read more</a>
                 </div>
@@ -109,14 +133,16 @@ function createNewsCard(article) {
 }
 
 // Initial fetch and display of news data
-(async () => {
+const mainFunc = async (input) => {
     try {
-        const newsData = await fetchNews(input, currentPage);
+        const newsData = await fetchNews(input);
         displayNews(newsData);
     } catch (error) {
         console.error('An error occurred:', error);
     }
-})();
+};
+mainFunc(input, currentPage);
+
 
 //Function to clamped to a certain number of characters
 function characterClamp(text, maxCharacters) {
@@ -127,3 +153,15 @@ function characterClamp(text, maxCharacters) {
     const clampedText = text.slice(0, maxCharacters) + '...';
     return clampedText;
 }
+
+// Function to show alert
+function showAlert(input) {
+    const alert = document.getElementById('alert');
+    alert.innerHTML = `
+    <div class="alert alert-success fade show pt-3 m-2 mb-4 text-center" role="alert">
+        <strong class="mx-4" >Displaying search results for: "${input}"</strong>
+        <a href="./" class="btn btn-outline-success" aria-hidden="true">Go Back</a>
+    </div>
+    `;
+}
+
