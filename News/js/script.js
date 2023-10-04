@@ -30,7 +30,7 @@ async function changePage(page) {
 // Function to display news data and pagination
 function displayNews(data) {
     const newsContainer = document.getElementById('news-container');
-
+    
     if (data && data.status === 'ok' && data.articles) {
         // Calculate the range of articles to display
         const startIndex = (currentPage - 1) * pageSize;
@@ -96,7 +96,7 @@ function createNewsCard(article) {
                         <i class="fas fa-user"></i>
                         <span class="text-muted">${ article.author ? characterClamp(article.author, 15) : 'Anonymous'}</span>
                     </div>
-                    <a href="${article.url}" class="stretched-link">Read more</a>
+                    <a target="_blank" href="${article.url}" class="stretched-link">Read more</a>
                 </div>
 
                 <div class="col-auto d-none d-lg-block pt-4 m-2">
