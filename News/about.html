@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News App - Get latest news now</title>
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Style.css -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">News App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/about.html">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact Us</a>
+                </li>
+            </ul>
+
+            <div class="mx-2">
+                <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Login</button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#signupModal">SignUp</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login to News App</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <!-- <label for="exampleInputEmail1">Email address</label> -->
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Email *">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="exampleInputPassword1">Password</label> -->
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password *">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <!-- <button type="submit" class="d-flex justify-content-center align-items-center btn btn-primary">Login</button> -->
+                        <button type="submit"
+                            class="d-flex justify-content-center align-items-center btn btn-primary mx-auto">Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Get an News App Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <!-- <label for="exampleInputEmail1">Email address</label> -->
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Email *">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="exampleInputPassword1">Password</label> -->
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password *">
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="cexampleInputPassword1">Confirm Password</label> -->
+                            <input type="password" class="form-control" id="cexampleInputPassword1"
+                                placeholder="Confirm Password *">
+                        </div>
+
+                        <button type="submit"
+                            class="d-flex justify-content-center align-items-center btn btn-primary mx-auto">Create
+                            Account</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Main Content Container -->
+    <div class="container my-4">
+        <!-- Featurette 1 -->
+        <div class="row mb-5 featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Our Journey in the News Industry</h2>
+                <span class="text-muted">Bringing You the Latest Updates.</span>
+                <p class="lead">We embarked on this journey to keep you informed with the most current and relevant
+                    news. Our dedication to delivering accurate information drives us forward. Lorem ipsum dolor sit
+                    amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Praesent commodo
+                    cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid custom-about-image" src="./images/our-journey.jpeg" alt="News App Image 1">
+            </div>
+        </div>
+        
+        <!-- Featurette 2 -->
+        <div class="row mb-5 featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Our History in News Reporting</h2>
+                <span class="text-muted">A Legacy of Reliable Journalism.</span>
+                <p class="lead">We started our journey in news reporting back in the late 20th century. Over the years,
+                    our commitment to delivering trustworthy news has remained unwavering. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Praesent commodo
+                    cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="img-fluid custom-about-image" src="./images/our-history.jpeg" alt="News App Image 2">
+            </div>
+        </div>
+
+        <!-- Featurette 3 -->
+        <div class="row mb-5 featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Stay Informed with Our News WebApp</h2>
+                <span class="text-muted">Your Source for Breaking News.</span>
+                <p class="lead">Our news app is designed to provide you with the latest and most important news stories.
+                    We believe in keeping our readers well-informed and engaged. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel
+                    scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid custom-about-image" src="./images/stay-informed.jpeg" alt="News App Image 3">
+            </div>
+        </div>
+        
+        <!-- Featurette 4 -->
+        <div class="row mb-5 featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Our Vision</h2>
+                <span class="text-muted">Shaping the Future of News.</span>
+                <p class="lead">Our vision is to shape the future of news by adapting to emerging technologies and
+                    trends. We aim to provide innovative and engaging news experiences for our readers. Lorem ipsum
+                    dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper.
+                    Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid custom-about-image" src="./images/our-vision.jpeg" alt="Vision Image">
+            </div>
+        </div>
+
+        <!-- Featurette 5 -->
+        <div class="row mb-5 featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Our Editorial Standards</h2>
+                <span class="text-muted">Adhering to Ethical Journalism.</span>
+                <p class="lead">We maintain strict editorial standards to ensure the accuracy and credibility of our
+                    news content. Ethical journalism is at the core of our practices. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Praesent commodo
+                    cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="img-fluid custom-about-image" src="./images/our-standards.jpeg" alt="Editorial Standards Image">
+            </div>
+        </div>
+
+        <!-- Featurette 6 -->
+        <div class="row mb-5 featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Our Readership</h2>
+                <span class="text-muted">A Global Community.</span>
+                <p class="lead">We are proud to have a diverse readership from all around the world. Our stories
+                    resonate with a global community of informed individuals. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel
+                    scelerisque nisl consectetur.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid custom-about-image" src="./images/our-readership.jpeg" alt="Readership Image">
+            </div>
+        </div>
+
+        <!-- Featurette 7 -->
+        <div class="row mb-5 featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Our Technology Stack</h2>
+                <span class="text-muted">Innovation in News Delivery.</span>
+                <p class="lead">We leverage cutting-edge technology to deliver news faster and more efficiently. Our
+                    technology stack ensures that you receive news updates in real-time. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Praesent commodo
+                    cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="img-fluid custom-about-image" src="./images/technology-stack.jpeg" alt="Technology Stack Image">
+            </div>
+        </div>
+
+        <!-- Featurette 8 -->
+        <div class="row mb-5 featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Our Impact</h2>
+                <span class="text-muted">News That Shapes the World.</span>
+                <p class="lead">We believe in the power of news to shape the world. Our impactful stories have
+                    influenced change and decision-making globally. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel
+                    scelerisque nisl consectetur.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid custom-about-image" src="./images/our-impact.jpeg" alt="Impact Image">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer  -->
+    <footer class="">
+        <p> Created With 🧡 By Lucifer <a class="ml-4" href="#">Back to top</a></p>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- Script.js -->
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

@@ -47,6 +47,9 @@ html {
     font-size: 18px;
 }
 
+.topic-item{
+    cursor: pointer;
+}
 /*--------------{ carousel }---------------*/
 
 
@@ -98,7 +101,6 @@ html {
 /* Custom CSS for news card images */
 .custom-news-image {
     border: 5px solid #1083ff;
-    ;
     /* Border style and color */
     border-radius: 10px;
     /* Rounded corners */
@@ -122,3 +124,17 @@ footer p {
 }
 
 /*------------- footer --------------------*/
+
+
+
+
+/*-------------------- About us --------------------*/
+/* Custom CSS for about card images */
+.custom-about-image {
+    border: 5px solid #1083ff;
+    border-radius: 25px;
+    background-color: #1083ff;
+}
+
+
+/*-------------------- About us --------------------*/

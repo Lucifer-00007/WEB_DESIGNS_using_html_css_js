@@ -4,28 +4,42 @@ const input = 'india'; // Replace with your desired search query
 const pageSize = 10; // Number of news cards per page
 let currentPage = 1; // Current page number
 
-const searchBtn = document.getElementById('search-btn');
-const searchInput = document.getElementById('search-input');
-const categoryButtons = document.querySelectorAll('.category-btn');
+if (window.location.pathname.includes('index.html') || window.location.pathname == '/') {
+    const searchBtn = document.getElementById('search-btn');
+    const searchInput = document.getElementById('search-input');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const topicItems = document.querySelectorAll('.topic-item');
 
-// Add event listeners to category buttons
-categoryButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        // Set the input query based on the button clicked
-        let input = button.dataset.category;
-        currentPage = 1; // Reset to page 1 when changing categories
-        showAlert(input);
-        mainFunc(input, currentPage);
+    // Add event listeners to category buttons
+    categoryButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            // Set the input query based on the button clicked
+            let input = button.dataset.category;
+            currentPage = 1; // Reset to page 1 when changing categories
+            showAlert(input);
+            mainFunc(input, currentPage);
+        });
     });
-});
 
-// Add event listeners to search buttons
-searchBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    currentPage = 1; // Reset to page 1 when changing categories
-    showAlert(searchInput.value);
-    mainFunc(searchInput.value, currentPage);
-});
+    // Add event listeners to search buttons
+    searchBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        currentPage = 1; // Reset to page 1 when changing categories
+        showAlert(searchInput.value);
+        mainFunc(searchInput.value, currentPage);
+    });
+
+
+    // Add event listeners to all dropdowns
+    topicItems.forEach(function (item) {
+        item.addEventListener('click', function () {
+            const selectedValue = item.textContent;
+            currentPage = 1; // Reset to page 1 when changing categories
+            showAlert(selectedValue);
+            mainFunc(selectedValue, currentPage)
+        });
+    });
+}
 
 // Function to fetch news data
 async function fetchNews(input) {
@@ -59,7 +73,6 @@ function displayNews(data) {
         const startIndex = (currentPage - 1) * pageSize;
         const endIndex = startIndex + pageSize;
         const newsData = data.articles.slice(startIndex, endIndex);
-        console.log('startIndex, endIndex> ', startIndex, endIndex)
 
         // Clear previous news cards and pagination
         newsContainer.innerHTML = '';
@@ -141,8 +154,10 @@ const mainFunc = async (input) => {
         console.error('An error occurred:', error);
     }
 };
-mainFunc(input, currentPage);
 
+if (window.location.pathname.includes('index.html') || window.location.pathname == '/') {
+    mainFunc(input, currentPage);
+}
 
 //Function to clamped to a certain number of characters
 function characterClamp(text, maxCharacters) {
@@ -157,6 +172,13 @@ function characterClamp(text, maxCharacters) {
 // Function to show alert
 function showAlert(input) {
     const alert = document.getElementById('alert');
+    const newsContainer = document.getElementById('news-container')
+    const paginationContainer = document.getElementById('pagination');
+
+    // Clear previous news cards and pagination
+    newsContainer.innerHTML = '';
+    paginationContainer.innerHTML = '';
+
     alert.innerHTML = `
     <div class="alert alert-success fade show pt-3 m-2 mb-4 text-center" role="alert">
         <strong class="mx-4" >Displaying search results for: "${input}"</strong>
