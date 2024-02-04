@@ -45,7 +45,7 @@ if (window.location.pathname.includes('index.html') || window.location.pathname 
 async function fetchNews(input) {
     try {
         // const response = await fetch(`https://news-api-wjkj.onrender.com/news?q=${input}&apiKey=${apiKey}`);
-        // const response = await fetch(`https://us-central1-micro-service-52cc5.cloudfunctions.net/newsApi/news?q=${input}&apiKey=${apiKey}`);
+        const response = await fetch(`https://us-central1-micro-service-52cc5.cloudfunctions.net/newsApi/news?q=${input}&apiKey=${apiKey}`);
         const data = await response.json();
         return data;
     } catch (error) {
